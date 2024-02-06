@@ -1,0 +1,34 @@
+syms x
+f=exp(-1*abs(x))
+F=fourier(f) % or syms s; F=fourier(f,s)
+fplot(f)
+grid on;hold on
+fplot(F)
+hold off
+legend('function','fourier transorm')
+
+syms s
+F=exp(-1*s^2)
+f=ifourier(F)
+fplot(F)
+grid on; hold on
+fplot(f)
+hold off
+legend('fourier transorm','function')
+
+clc
+clear
+syms n
+f=n*(1-(1/n))
+Z=ztrans(f)
+fplot(Z)
+
+syms z n
+U=2*z/(z-2)^2
+f=iztrans(U,n)
+fplot(U)
+
+syms n z
+f=sin (n*pi/4)
+U=ztrans(f)
+fplot(U)
